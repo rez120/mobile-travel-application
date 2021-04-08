@@ -1,11 +1,9 @@
 import 'package:app/helpers/destination_sorter.dart';
 import 'package:app/models/destination.dart';
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' as parser;
-import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:linkify/linkify.dart';
 

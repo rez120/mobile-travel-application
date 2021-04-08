@@ -1,5 +1,3 @@
-import 'package:app/models/destination.dart';
-
 destinationSorter(var destinations) {
   for (var i = 0; i < destinations.length; i++) {
     switch (destinations[i].continent) {

@@ -15,6 +15,5 @@ class _SettingsScreenState extends State<SettingsScreen> {
         height: 200.0,
       ),
     );
-    ;
   }
 }
