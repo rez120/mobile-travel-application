@@ -77,7 +77,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
     }
     await destinationSorter(destinationList);
     print("Data Collected.");
-    print(africanDestinations[0].nameAndCountry);
+    // print(asianDestinations[0].nameAndCountry);
+
     Route route = MaterialPageRoute(builder: (context) => BottomNavBar());
     Navigator.pushReplacement(context, route);
   }

@@ -18,7 +18,7 @@ destinationSorter(var destinations) {
       case "OCEANA":
         oceanianDestinations.add(destinations[i]);
         break;
-      case "ASIAN":
+      case "ASIA":
         asianDestinations.add(destinations[i]);
         break;
       case "ANTARCTICA":
