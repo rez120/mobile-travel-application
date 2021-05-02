@@ -28,6 +28,7 @@ destinationSorter(var destinations) {
   }
 }
 
+var allDestinations = [];
 var africanDestinations = [];
 var europeanDestinations = [];
 var northAmericanDestinations = [];

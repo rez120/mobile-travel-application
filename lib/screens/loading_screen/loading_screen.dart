@@ -20,6 +20,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
+
     getData();
     // for (var i; i < destinationList.length; i++) {
     //   destinationSorter(destinationList[i]);
@@ -73,6 +74,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
           thumbnail: thumbnail,
           description: description));
     }
+
+    for (var i = 0; i < destinationList.length; i++) {
+      allDestinations.add(destinationList[i]);
+    }
+    print(allDestinations.length);
+
     await destinationSorter(destinationList);
     print("Data Collected.");
     // print(asianDestinations[0].nameAndCountry);

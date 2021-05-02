@@ -27,20 +27,38 @@ class _ContinentScreenState extends State<ContinentScreen> {
                           fontSize: 28.0, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 30.0),
-                    Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: widget.destinations
-                            .map<Widget>((e) => destinationCard(
-                                  e,
-                                  context,
-                                  () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => DetailScreen(
-                                                destination: e,
-                                              ))),
-                                ))
-                            .toList()),
+                    // Row(
+                    //     // crossAxisAlignment: CrossAxisAlignment.center,
+                    //     children: widget.destinations
+                    //         .map<Widget>((e) => destinationCard(
+                    //               e,
+                    //               context,
+                    //               () => Navigator.push(
+                    //                   context,
+                    //                   MaterialPageRoute(
+                    //                       builder: (context) => DetailScreen(
+                    //                             destination: e,
+                    //                           ))),
+                    //             ))
+                    //         .toList()),
+
+                    Container(
+                      height: 320.0,
+                      child: ListView.builder(
+                          itemCount: widget.destinations.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) => destinationCard(
+                                widget.destinations[index],
+                                context,
+                                () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailScreen(
+                                              destination:
+                                                  widget.destinations[index],
+                                            ))),
+                              )),
+                    ),
                   ],
                 ),
               )
@@ -53,8 +71,10 @@ class _ContinentScreenState extends State<ContinentScreen> {
         child: Padding(
           padding: const EdgeInsets.only(bottom: 18.0),
           child: Container(
+            // color: Colors.blue,
+
             height: 300.0,
-            width: MediaQuery.of(context).size.width,
+            width: (MediaQuery.of(context).size.width) * 0.70,
             // color: Colors.blue,
             child: Stack(
               alignment: Alignment.topCenter,
@@ -67,7 +87,7 @@ class _ContinentScreenState extends State<ContinentScreen> {
                     width: 250.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.white,
+                      color: Colors.grey[350],
                       boxShadow: [
                         BoxShadow(
                             color: Colors.black26,
