@@ -1,3 +1,4 @@
+import 'package:app/helpers/purchases.dart';
 import 'package:app/models/destination.dart';
 import 'package:flutter/material.dart';
 
@@ -116,7 +117,10 @@ class DetailScreen extends StatelessWidget {
                               fontSize: 16.0, fontWeight: FontWeight.bold),
                         ),
                         ElevatedButton(
-                            onPressed: () {}, child: Text("Purchase"))
+                            onPressed: () {
+                              flights.add(destination);
+                            },
+                            child: Text("Purchase"))
                       ],
                     ),
                     SizedBox(
@@ -132,7 +136,10 @@ class DetailScreen extends StatelessWidget {
                               fontSize: 16.0, fontWeight: FontWeight.bold),
                         ),
                         ElevatedButton(
-                            onPressed: () {}, child: Text("Purchase"))
+                            onPressed: () {
+                              hotels.add(destination);
+                            },
+                            child: Text("Purchase"))
                       ],
                     ),
                   ],
