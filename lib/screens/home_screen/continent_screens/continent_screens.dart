@@ -11,60 +11,101 @@ class ContinentScreen extends StatefulWidget {
 }
 
 class _ContinentScreenState extends State<ContinentScreen> {
-  bool a = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: !a
-            ? SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 10.0),
-                    Text(
-                      "Destinations",
-                      style: TextStyle(
-                          fontSize: 28.0, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 30.0),
-                    // Row(
-                    //     // crossAxisAlignment: CrossAxisAlignment.center,
-                    //     children: widget.destinations
-                    //         .map<Widget>((e) => destinationCard(
-                    //               e,
-                    //               context,
-                    //               () => Navigator.push(
-                    //                   context,
-                    //                   MaterialPageRoute(
-                    //                       builder: (context) => DetailScreen(
-                    //                             destination: e,
-                    //                           ))),
-                    //             ))
-                    //         .toList()),
+        body: SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: 10.0),
+          Text(
+            "Destinations",
+            style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 30.0),
+          // Row(
+          //     // crossAxisAlignment: CrossAxisAlignment.center,
+          //     children: widget.destinations
+          //         .map<Widget>((e) => destinationCard(
+          //               e,
+          //               context,
+          //               () => Navigator.push(
+          //                   context,
+          //                   MaterialPageRoute(
+          //                       builder: (context) => DetailScreen(
+          //                             destination: e,
+          //                           ))),
+          //             ))
+          //         .toList()),
 
-                    Container(
-                      height: 320.0,
-                      child: ListView.builder(
-                          itemCount: widget.destinations.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) => destinationCard(
-                                widget.destinations[index],
-                                context,
-                                () => Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DetailScreen(
-                                              destination:
-                                                  widget.destinations[index],
-                                            ))),
-                              )),
-                    ),
+          Container(
+            height: 320.0,
+            child: ListView.builder(
+                itemCount: widget.destinations.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => destinationCard(
+                      widget.destinations[index],
+                      context,
+                      () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailScreen(
+                                    destination: widget.destinations[index],
+                                  ))),
+                    )),
+          ),
 
-                    Container(),
-                  ],
-                ),
-              )
-            : Text("g"));
+          // Container(
+          //   decoration: BoxDecoration(
+          //     color: Colors.grey,
+          //     borderRadius: BorderRadius.circular(25.0),
+          //   ),
+          //   child: Column(
+          //     children: widget.destinations
+          //         .map((e) => ListTile(title: Text("fgf")))
+          //         .toList(),
+          //   ),
+          // ),
+          Container(
+            margin: EdgeInsets.all(12.0),
+            decoration: BoxDecoration(
+              color: Colors.grey[350],
+              borderRadius: BorderRadius.circular(25.0),
+            ),
+            child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: widget.destinations
+                    .map<Widget>((e) => ListTile(
+                          leading: Icon(Icons.flight),
+                          title: Text(e.company),
+                          subtitle: Text("Flight price: ${e.flightPrice}"),
+                          trailing: Text(e.nameAndCountry),
+                        ))
+                    .toList()),
+          ),
+
+          Container(
+            margin: EdgeInsets.all(12.0),
+            decoration: BoxDecoration(
+              color: Colors.grey[350],
+              borderRadius: BorderRadius.circular(25.0),
+            ),
+            child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: widget.destinations
+                    .map<Widget>((e) => ListTile(
+                          leading: Icon(Icons.hotel),
+                          title: Text(e.company),
+                          subtitle: Text("Hotel price: ${e.flightPrice}"),
+                          trailing: Text(e.nameAndCountry),
+                          onTap: () {},
+                        ))
+                    .toList()),
+          ),
+        ],
+      ),
+    ));
   }
 
   Widget destinationCard(var destination, context, tapAction) =>
