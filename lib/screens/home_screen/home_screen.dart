@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
                 child: TextField(
                   controller: _textEditingController,
-                  autofocus: true,
+                  // autofocus: true,
                   textInputAction: TextInputAction.done,
                   onEditingComplete: () {
                     // FocusScope.of(context).requestFocus(new FocusNode());

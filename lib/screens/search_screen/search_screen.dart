@@ -60,7 +60,6 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget _searchCard(destination) => Container(
         height: 190,
         width: (MediaQuery.of(context).size.width),
-        color: Colors.red,
         padding: EdgeInsets.all(10.0),
         child: Stack(
           // crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +76,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(20),
                         bottomRight: Radius.circular(20)),
-                    color: Colors.grey,
+                    color: Colors.grey[350],
                   ),
                   padding: const EdgeInsets.only(left: 15.0),
                   child: Column(

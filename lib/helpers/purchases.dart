@@ -1,0 +1,2 @@
+var flights = [];
+var hotels = [];
