@@ -67,6 +67,7 @@ class _ContinentScreenState extends State<ContinentScreen> {
           //         .toList(),
           //   ),
           // ),
+          Text("Latest Flight Offers"),
           Container(
             margin: EdgeInsets.all(12.0),
             decoration: BoxDecoration(
@@ -81,10 +82,16 @@ class _ContinentScreenState extends State<ContinentScreen> {
                           title: Text(e.company),
                           subtitle: Text("Flight price: ${e.flightPrice}"),
                           trailing: Text(e.nameAndCountry),
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DetailScreen(
+                                        destination: e,
+                                      ))),
                         ))
                     .toList()),
           ),
-
+          Text("Latest Residency Offers"),
           Container(
             margin: EdgeInsets.all(12.0),
             decoration: BoxDecoration(
@@ -99,7 +106,12 @@ class _ContinentScreenState extends State<ContinentScreen> {
                           title: Text(e.company),
                           subtitle: Text("Hotel price: ${e.flightPrice}"),
                           trailing: Text(e.nameAndCountry),
-                          onTap: () {},
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DetailScreen(
+                                        destination: e,
+                                      ))),
                         ))
                     .toList()),
           ),
