@@ -1,5 +1,6 @@
 import 'package:app/helpers/purchases.dart';
 import 'package:app/models/destination.dart';
+import 'package:app/screens/transaction_screen/transaction_screen.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -118,7 +119,14 @@ class DetailScreen extends StatelessWidget {
                         ),
                         ElevatedButton(
                             onPressed: () {
-                              flights.add(destination);
+                              // flights.add(destination);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TransactionScreen(
+                                            destination: destination,
+                                            isFlight: true,
+                                          )));
                             },
                             child: Text("Purchase"))
                       ],
@@ -137,7 +145,13 @@ class DetailScreen extends StatelessWidget {
                         ),
                         ElevatedButton(
                             onPressed: () {
-                              hotels.add(destination);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TransactionScreen(
+                                            destination: destination,
+                                            isFlight: false,
+                                          )));
                             },
                             child: Text("Purchase"))
                       ],

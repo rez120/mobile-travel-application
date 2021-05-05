@@ -8,48 +8,54 @@ class DealsScreen extends StatefulWidget {
 
 class _DealsScreenState extends State<DealsScreen> {
   @override
-  void initState() {
-    print(flights);
-    print(hotels);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text("Purchases"),
-            Text("your flights"),
-            Column(
-              children: flights
-                  .map((e) => PurchaseCard(
-                      icon: Icon(Icons.flight),
-                      destination: e,
-                      flight: 1,
-                      remove: () {
-                        setState(() {
-                          flights.remove(e);
-                        });
-                      }))
-                  .toList(),
-            ),
-            Text("your hotel reservation"),
-            Column(
-              children: hotels
-                  .map((e) => PurchaseCard(
-                      icon: Icon(Icons.hotel),
-                      destination: e,
-                      flight: 0,
-                      remove: () {
-                        setState(() {
-                          hotels.remove(e);
-                        });
-                      }))
-                  .toList(),
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Purchases",
+                    textAlign: TextAlign.center,
+                  )),
+              Container(child: Text("your flights")),
+              Column(
+                children: flights.length != 0
+                    ? flights
+                        .map((e) => PurchaseCard(
+                            icon: Icon(Icons.flight),
+                            destination: e,
+                            flight: 1,
+                            remove: () {
+                              setState(() {
+                                flights.remove(e);
+                              });
+                            }))
+                        .toList()
+                    : [Text("No flights Scheduled.")],
+              ),
+              Text("your hotel reservation"),
+              Column(
+                children: hotels.length != 0
+                    ? hotels
+                        .map((e) => PurchaseCard(
+                            icon: Icon(Icons.hotel),
+                            destination: e,
+                            flight: 0,
+                            remove: () {
+                              setState(() {
+                                hotels.remove(e);
+                              });
+                            }))
+                        .toList()
+                    : [Text("No Hotel reservations.")],
+              ),
+            ],
+          ),
         ),
       ),
     );

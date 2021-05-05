@@ -17,12 +17,22 @@ class LoginScreen extends StatelessWidget {
             Container(
               child: Column(
                 children: [
-                  Text("Authentication"),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Text(
+                      "Authentication",
+                      style: TextStyle(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[800]),
+                    ),
+                  ),
                   Container(
-                    margin: EdgeInsets.all(18.0),
+                    margin: EdgeInsets.fromLTRB(18.0, 18, 18, 8),
+                    padding: EdgeInsets.symmetric(horizontal: 12.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.0),
-                      color: Colors.grey,
+                      color: Colors.grey[350],
                     ),
                     child: TextField(
                       controller: _usernameController,
@@ -44,9 +54,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.all(18.0),
+                    padding: EdgeInsets.symmetric(horizontal: 12.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.0),
-                      color: Colors.grey,
+                      color: Colors.grey[350],
                     ),
                     child: TextField(
                       controller: _usernameController,
@@ -61,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                           disabledBorder: InputBorder.none,
                           hintText: "Enter Password",
                           icon: Icon(
-                            Icons.person,
+                            Icons.book,
                             color: Colors.grey,
                           )),
                     ),

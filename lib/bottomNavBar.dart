@@ -16,6 +16,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
       body: tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey[700],
+        showSelectedLabels: true,
+        unselectedLabelStyle:
+            TextStyle(color: Colors.grey[700], fontSize: 20.0),
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
