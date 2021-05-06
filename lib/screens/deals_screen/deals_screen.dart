@@ -16,13 +16,26 @@ class _DealsScreenState extends State<DealsScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 15.0,
+              ),
               Align(
                   alignment: Alignment.center,
                   child: Text(
                     "Purchases",
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.grey[800],
+                        fontSize: 28.0,
+                        fontWeight: FontWeight.bold),
                   )),
-              Container(child: Text("your flights")),
+              SizedBox(height: 10.0),
+              Container(
+                child: Text(
+                  "Your Flight Reservations",
+                  style: TextStyle(color: Colors.grey[800], fontSize: 18.0),
+                ),
+              ),
               Column(
                 children: flights.length != 0
                     ? flights
@@ -38,7 +51,13 @@ class _DealsScreenState extends State<DealsScreen> {
                         .toList()
                     : [Text("No flights Scheduled.")],
               ),
-              Text("your hotel reservation"),
+              SizedBox(
+                height: 16.0,
+              ),
+              Text(
+                "Your hotel reservation",
+                style: TextStyle(color: Colors.grey[800], fontSize: 18.0),
+              ),
               Column(
                 children: hotels.length != 0
                     ? hotels
@@ -90,7 +109,12 @@ class PurchaseCard extends StatelessWidget {
             subtitle: flight == 1
                 ? Text(destination.flightPrice)
                 : Text(destination.hotelPrice),
-            trailing: IconButton(icon: Icon(Icons.delete), onPressed: remove)),
+            trailing: IconButton(
+                icon: Icon(
+                  Icons.delete,
+                  color: Colors.red[800],
+                ),
+                onPressed: remove)),
       ),
     );
   }
