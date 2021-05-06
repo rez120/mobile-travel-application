@@ -91,8 +91,15 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Image.network(
-          "http://10.0.2.2:80/travel-app/assets/images/toronto.jpg"),
-    );
+        body: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SpinKitRing(
+          color: Colors.blue,
+          size: 70.0,
+        ),
+      ],
+    ));
   }
 }

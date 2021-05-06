@@ -15,6 +15,50 @@ class TransactionScreen extends StatelessWidget {
             margin: EdgeInsets.all(18.0),
             child: Column(
               children: [
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(
+                    "Payment info: ",
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 5.0),
+                  Text(
+                    "Company Name: ${destination.company}",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      fontSize: 17.0,
+                    ),
+                  ),
+                  SizedBox(height: 5.0),
+                  isFlight == true
+                      ? Text(
+                          "Service or product: Flight reservation for ${destination.nameAndCountry}",
+                          style: TextStyle(
+                            fontSize: 17.0,
+                          ),
+                        )
+                      : Text(
+                          "Service or product: Hotel reservation for ${destination.nameAndCountry}",
+                          style: TextStyle(
+                            fontSize: 17.0,
+                          ),
+                        ),
+                  SizedBox(height: 5.0),
+                  isFlight == true
+                      ? Text(
+                          "Total Payment: ${destination.flightPrice}",
+                          style: TextStyle(
+                            fontSize: 17.0,
+                          ),
+                        )
+                      : Text(
+                          "Total Payment: ${destination.hotelPrice}",
+                          style: TextStyle(
+                            fontSize: 17.0,
+                          ),
+                        ),
+                ]),
+                SizedBox(height: 15.0),
                 Container(
                     child: Text(
                   "Enter required Information to complete transaction",

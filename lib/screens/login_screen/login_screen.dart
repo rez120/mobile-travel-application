@@ -1,3 +1,4 @@
+import 'package:app/helpers/info.dart';
 import 'package:app/screens/loading_screen/loading_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.grey[350],
                     ),
                     child: TextField(
-                      controller: _usernameController,
+                      controller: _passwordController,
                       // autofocus: true,
                       textInputAction: TextInputAction.done,
 
@@ -86,7 +87,10 @@ class LoginScreen extends StatelessWidget {
                             onPressed: () {
                               Route route = MaterialPageRoute(
                                   builder: (context) => LoadingScreen());
-                              Navigator.pushReplacement(context, route);
+                              if (username == _usernameController.text &&
+                                  password == _passwordController.text) {
+                                Navigator.pushReplacement(context, route);
+                              }
                             },
                             child: Text("Login")),
                         SizedBox(width: 10.0),

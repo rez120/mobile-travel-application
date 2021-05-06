@@ -67,7 +67,10 @@ class _ContinentScreenState extends State<ContinentScreen> {
           //         .toList(),
           //   ),
           // ),
-          Text("Latest Flight Offers"),
+          Text(
+            "Latest Flight Offers",
+            style: TextStyle(fontSize: 18.0),
+          ),
           Container(
             margin: EdgeInsets.all(12.0),
             decoration: BoxDecoration(
@@ -91,7 +94,13 @@ class _ContinentScreenState extends State<ContinentScreen> {
                         ))
                     .toList()),
           ),
-          Text("Latest Residency Offers"),
+          SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            "Latest Reservation Offers",
+            style: TextStyle(fontSize: 18.0),
+          ),
           Container(
             margin: EdgeInsets.all(12.0),
             decoration: BoxDecoration(
@@ -115,6 +124,7 @@ class _ContinentScreenState extends State<ContinentScreen> {
                         ))
                     .toList()),
           ),
+          SizedBox(height: 15.0),
         ],
       ),
     ));

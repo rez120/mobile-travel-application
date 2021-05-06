@@ -1,4 +1,5 @@
 import 'package:app/helpers/destination_sorter.dart';
+import 'package:app/helpers/info.dart';
 import 'package:app/screens/home_screen/continent_screens/continent_screens.dart';
 import 'package:app/screens/search_screen/search_screen.dart';
 import 'package:flutter/material.dart';
@@ -71,12 +72,19 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(170.0),
+          preferredSize: Size.fromHeight(195.0),
           child: Column(
             children: [
               Text(
                 "Travel App",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+              ),
+              SizedBox(
+                height: 7.0,
+              ),
+              Text(
+                "Welcome " + username,
+                style: TextStyle(color: Colors.grey, fontSize: 18),
               ),
               SizedBox(
                 height: 10.0,
