@@ -282,7 +282,10 @@ class TransactionScreen extends StatelessWidget {
                               hotels.add(destination);
                               print("hoteled");
                             }
-                            Navigator.pop(context);
+                            Route route = MaterialPageRoute(
+                                builder: (context) =>
+                                    TransactionCompleteScreen());
+                            Navigator.pushReplacement(context, route);
                           },
                           child: Text(
                             "Pay",
@@ -315,6 +318,53 @@ class TransactionScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class TransactionCompleteScreen extends StatefulWidget {
+  @override
+  _TransactionCompleteScreenState createState() =>
+      _TransactionCompleteScreenState();
+}
+
+class _TransactionCompleteScreenState extends State<TransactionCompleteScreen> {
+  @override
+  void initState() {
+    wait() async {
+      await Future.delayed(Duration(milliseconds: 1500), () {
+        print("123");
+      });
+      Navigator.pop(context);
+    }
+
+    wait();
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: 300,
+                child: Text(
+                  "Transaction Successfully Complete.",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.green,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            )
+          ]),
     );
   }
 }

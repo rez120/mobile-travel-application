@@ -1,11 +1,11 @@
-import 'package:app/helpers/purchases.dart';
 import 'package:app/models/destination.dart';
 import 'package:app/screens/transaction_screen/transaction_screen.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
   final Destination destination;
-  DetailScreen({this.destination});
+  final String type;
+  DetailScreen({this.destination, this.type});
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -109,53 +109,61 @@ class DetailScreen extends StatelessWidget {
                     SizedBox(
                       height: 15.0,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Flight Price: " + destination.flightPrice,
-                          style: TextStyle(
-                              fontSize: 16.0, fontWeight: FontWeight.bold),
-                        ),
-                        ElevatedButton(
-                            onPressed: () {
-                              // flights.add(destination);
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => TransactionScreen(
-                                            destination: destination,
-                                            isFlight: true,
-                                          )));
-                            },
-                            child: Text("Purchase"))
-                      ],
-                    ),
+                    type == "flight" || type == "destination"
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Flight Price: " + destination.flightPrice,
+                                style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    // flights.add(destination);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                TransactionScreen(
+                                                  destination: destination,
+                                                  isFlight: true,
+                                                )));
+                                  },
+                                  child: Text("Purchase"))
+                            ],
+                          )
+                        : SizedBox(height: 2.0),
                     SizedBox(
                       height: 15.0,
                     ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Hotel Price: " + destination.hotelPrice,
-                          style: TextStyle(
-                              fontSize: 16.0, fontWeight: FontWeight.bold),
-                        ),
-                        ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => TransactionScreen(
-                                            destination: destination,
-                                            isFlight: false,
-                                          )));
-                            },
-                            child: Text("Purchase"))
-                      ],
-                    ),
+                    type == "hotel" || type == "destination"
+                        ? Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Hotel Price: " + destination.hotelPrice,
+                                style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                TransactionScreen(
+                                                  destination: destination,
+                                                  isFlight: false,
+                                                )));
+                                  },
+                                  child: Text("Purchase"))
+                            ],
+                          )
+                        : SizedBox(height: 2.0),
                   ],
                 ),
               ),

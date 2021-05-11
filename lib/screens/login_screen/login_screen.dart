@@ -2,8 +2,6 @@ import 'package:app/helpers/info.dart';
 import 'package:app/screens/loading_screen/loading_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../bottomNavBar.dart';
-
 class LoginScreen extends StatelessWidget {
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();

@@ -52,6 +52,7 @@ class _ContinentScreenState extends State<ContinentScreen> {
                           MaterialPageRoute(
                               builder: (context) => DetailScreen(
                                     destination: widget.destinations[index],
+                                    type: "destination",
                                   ))),
                     )),
           ),
@@ -90,6 +91,7 @@ class _ContinentScreenState extends State<ContinentScreen> {
                               MaterialPageRoute(
                                   builder: (context) => DetailScreen(
                                         destination: e,
+                                        type: "flight",
                                       ))),
                         ))
                     .toList()),
@@ -113,13 +115,14 @@ class _ContinentScreenState extends State<ContinentScreen> {
                     .map<Widget>((e) => ListTile(
                           leading: Icon(Icons.hotel),
                           title: Text(e.company),
-                          subtitle: Text("Hotel price: ${e.flightPrice}"),
+                          subtitle: Text("Hotel price: ${e.hotelPrice}"),
                           trailing: Text(e.nameAndCountry),
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => DetailScreen(
                                         destination: e,
+                                        type: "hotel",
                                       ))),
                         ))
                     .toList()),
@@ -182,7 +185,7 @@ class _ContinentScreenState extends State<ContinentScreen> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: Colors.grey,
                     borderRadius: BorderRadius.circular(20.0),
                     boxShadow: [
                       BoxShadow(

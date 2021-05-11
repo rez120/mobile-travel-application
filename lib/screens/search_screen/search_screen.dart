@@ -56,7 +56,7 @@ class _SearchScreenState extends State<SearchScreen> {
               Navigator.pop(context);
             }),
         title: Text(
-          "Search Results",
+          "Search Results for \"${widget.query}\"",
           style: TextStyle(color: Colors.grey[800]),
         ),
         elevation: 0,
@@ -72,6 +72,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         MaterialPageRoute(
                             builder: (context) => DetailScreen(
                                   destination: e,
+                                  type: "destination",
                                 )))))
                 .toList()),
       ),
