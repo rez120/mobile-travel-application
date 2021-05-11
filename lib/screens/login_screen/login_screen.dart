@@ -92,7 +92,8 @@ class LoginScreen extends StatelessWidget {
                             },
                             child: Text("Login")),
                         SizedBox(width: 10.0),
-                        ElevatedButton(onPressed: () {}, child: Text("Signup")),
+                        ElevatedButton(
+                            onPressed: () {}, child: Text("Sign up")),
                       ],
                     ),
                   ),
